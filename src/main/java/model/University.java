@@ -1,3 +1,5 @@
+package model;
+
 public class University {
 
     private String id;

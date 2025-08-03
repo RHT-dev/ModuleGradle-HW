@@ -1,3 +1,5 @@
+package model;
+
 public class Student {
 
     private String fullName;
@@ -58,7 +60,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Full Name: " + fullName + "\nUniversity ID: " + universityId
+        return "Full Name: " + fullName + "\nmodel.University ID: " + universityId
                 + "\nCurrentCourseNumber: " + currentCourseNumber
                 + "\nAverage Exam Score: " + avgExamScore + "\n";
     }

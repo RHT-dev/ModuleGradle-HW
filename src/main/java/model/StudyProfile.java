@@ -1,3 +1,5 @@
+package model;
+
 public enum StudyProfile {
     ECONOMICS("Экономика"),
     PSYCHOLOGY("Психология"),
