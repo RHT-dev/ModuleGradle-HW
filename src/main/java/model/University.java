@@ -1,5 +1,7 @@
 package model;
 
+import enumeration.StudyProfile;
+
 public class University {
 
     private String id;

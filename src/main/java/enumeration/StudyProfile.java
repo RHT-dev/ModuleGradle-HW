@@ -1,4 +1,4 @@
-package model;
+package enumeration;
 
 public enum StudyProfile {
     ECONOMICS("Экономика"),
