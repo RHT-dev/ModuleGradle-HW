@@ -60,6 +60,6 @@ public class Student {
     public String toString() {
         return "Full Name: " + fullName + "\nUniversity ID: " + universityId
                 + "\nCurrentCourseNumber: " + currentCourseNumber
-                + "\nAverage Exam Score: " + avgExamScore;
+                + "\nAverage Exam Score: " + avgExamScore + "\n";
     }
 }

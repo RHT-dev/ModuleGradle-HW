@@ -73,6 +73,6 @@ public class University {
         return "ID: " + id + "\nFull Name:" + fullName
                 + "\nShort Name: " + shortName
                 + "\nYear of Foundation: " + yearOfFoundation
-                + "Study Profile: " + (mainProfile != null ? mainProfile.getProfileName() : "null");
+                + "\nStudy Profile: " + (mainProfile != null ? mainProfile.getProfileName() : "null") + "\n";
     }
 }
