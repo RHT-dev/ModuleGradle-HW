@@ -74,7 +74,7 @@ public class University {
 
     @Override
     public String toString() {
-        return "ID: " + id + "\nFull Name:" + fullName
+        return "ID: " + id + "\nFull Name: " + fullName
                 + "\nShort Name: " + shortName
                 + "\nYear of Foundation: " + yearOfFoundation
                 + "\nStudy Profile: " + (mainProfile != null ? mainProfile.getProfileName() : "null") + "\n";

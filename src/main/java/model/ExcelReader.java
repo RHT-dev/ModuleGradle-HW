@@ -21,7 +21,11 @@ public class ExcelReader {
         List<Student> students = new ArrayList<>();
 
         InputStream inputStream = ExcelReader.class
-                .getResourceAsStream("universityinfo.xlsx");
+                .getResourceAsStream("/universityInfo.xlsx");
+
+        if (inputStream == null) {
+            throw new IOException("Файл universityInfo.xlsx не найден в resources");
+        }
 
         Workbook workbook = new XSSFWorkbook(inputStream);
         Sheet sheet = workbook.getSheet("Студенты");
@@ -38,6 +42,9 @@ public class ExcelReader {
 
             students.add(student);
         }
+        
+        workbook.close();
+        inputStream.close();
         return students;
     };
 
@@ -46,7 +53,11 @@ public class ExcelReader {
         List<University> universities = new ArrayList<>();
 
         InputStream inputStream = ExcelReader.class
-                .getResourceAsStream("universityinfo.xlsx");
+                .getResourceAsStream("/universityInfo.xlsx");
+
+        if (inputStream == null) {
+            throw new IOException("Файл universityInfo.xlsx не найден в ресурсах");
+        }
 
         Workbook workbook = new XSSFWorkbook(inputStream);
         Sheet sheet = workbook.getSheet("Университеты");
@@ -66,6 +77,9 @@ public class ExcelReader {
 
             universities.add(university);
         }
+        
+        workbook.close();
+        inputStream.close();
         return universities;
     };
 }
