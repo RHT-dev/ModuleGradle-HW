@@ -37,5 +37,32 @@ public class Main {
             System.out.println(">>> UNIVERSITIES НЕ СОВПАДАЮТ");
         }
 
+        // пункты 7-10
+
+        students.stream().forEach(student -> {
+            // пункт 7: сериализация
+            String json = JsonUtil.serializeStudent(student);
+
+            // пункт 8: вывод JSON-строки
+            System.out.println("Serialized JSON:\n" + json);
+
+            // пункт 9: десериализация
+            Student deserialized = JsonUtil.deserializeStudent(json);
+
+            // пункт 10: вывод обратно полученного объекта
+            System.out.println("Deserialized object:\n" + deserialized);
+        });
+
+        universities.stream().forEach(university -> {
+            String json = JsonUtil.serializeUniversity(university);
+
+            System.out.println("Serialized JSON:\n" + json);
+
+            University deserialized = JsonUtil.deserializeUniversity(json);
+
+            System.out.println("Deserialized object:\n" + deserialized);
+        });
+
+
     }
 }

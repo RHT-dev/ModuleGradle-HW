@@ -35,8 +35,8 @@ public class ExcelReader {
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
             Student student = new Student()
-                    .setFullName(row.getCell(0).getStringCellValue())
-                    .setUniversityId(row.getCell(1).getStringCellValue())
+                    .setUniversityId(row.getCell(0).getStringCellValue())
+                    .setFullName(row.getCell(1).getStringCellValue())
                     .setCurrentCourseNumber((int) row.getCell(2).getNumericCellValue())
                     .setAvgExamScore((float) row.getCell(3).getNumericCellValue());
 
