@@ -60,7 +60,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Full Name: " + fullName + "\nmodel.University ID: " + universityId
+        return "University ID: " + universityId + "\nFull Name: " + fullName
                 + "\nCurrentCourseNumber: " + currentCourseNumber
                 + "\nAverage Exam Score: " + avgExamScore + "\n";
     }

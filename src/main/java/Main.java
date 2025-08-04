@@ -1,59 +1,41 @@
-import enumeration.StudentComparatorType;
-import enumeration.UniversityComparatorType;
-import model.ComparatorFabricUtil;
-import model.ExcelReader;
-import model.Student;
-import model.University;
-import studentComparator.StudentComparator;
-import universityComparator.UniversityComparator;
+import model.*;
 
 import java.io.IOException;
-import java.util.EnumMap;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         List<Student> students = ExcelReader.studentReader();
         List<University> universities = ExcelReader.universityReader();
 
-        // 1 вариант: сохранять как переменные конкретные компараторы, н-р:
+        // Практическая неделя 3. Проект.
 
-        StudentComparator studentAvgExamScoreComparator = ComparatorFabricUtil
-                .getStudentComparator(StudentComparatorType.AVG_EXAM_SCORE);
-        UniversityComparator universityFullNameComparator = ComparatorFabricUtil
-                .getUniversityComparator(UniversityComparatorType.FULL_NAME);
+        // пункт 4
+        String studentsJson = JsonUtil.serializeStudentList(students);
+        String universityJson = JsonUtil.serializeUniversityList(universities);
 
-        System.out.println(">>> 1 ВАРИАНТ: ");
+        System.out.println(studentsJson);
+        System.out.println(universityJson + "\n");
 
-        students.stream()
-                .sorted(studentAvgExamScoreComparator)
-                .forEach(System.out::println);
+        // пункт 5
+        List<Student> deserializedStudents = JsonUtil.deserializeStudentList(studentsJson);
+        List<University> deserializedUniversities = JsonUtil.deserializeUniversityList(universityJson);
 
-        universities.stream()
-                .sorted(universityFullNameComparator)
-                .forEach(System.out::println);
+        // пункт 6
 
-
-        // 2 вариант: или сохранить все виды компараторов в Map и вызывать нужные где потребуется
-        Map<StudentComparatorType, StudentComparator> studentComparators = new EnumMap<>(StudentComparatorType.class);
-        for (StudentComparatorType type : StudentComparatorType.values()) {
-            studentComparators.put(type, ComparatorFabricUtil.getStudentComparator(type));
+        if (students.size() == deserializedStudents.size()) {
+            System.out.printf("Количество студентов совпадает: %d\n", students.size());
+        }
+        else {
+            System.out.println(">>> STUDENTS НЕ СОВПАДАЮТ");
         }
 
-        Map<UniversityComparatorType, UniversityComparator> universityComparators = new EnumMap<>(UniversityComparatorType.class);
-        for (UniversityComparatorType type : UniversityComparatorType.values()) {
-            universityComparators.put(type, ComparatorFabricUtil.getUniversityComparator(type));
+        if (universities.size() == deserializedUniversities.size()) {
+            System.out.printf("Количество университетов совпадает: %d\n", universities.size());
+        }
+        else {
+            System.out.println(">>> UNIVERSITIES НЕ СОВПАДАЮТ");
         }
 
-        System.out.println(">>> 2 ВАРИАНТ: ");
-
-        students.stream()
-                .sorted(studentComparators.get(StudentComparatorType.FULL_NAME))
-                .forEach(System.out::println);
-
-        universities.stream()
-                .sorted(universityComparators.get(UniversityComparatorType.FULL_NAME))
-                .forEach(System.out::println);
     }
 }
