@@ -1,6 +1,8 @@
 package model;
 
 import enumeration.StudyProfile;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -14,6 +16,8 @@ import java.util.List;
 
 public class ExcelReader {
 
+    private static final Logger logger = LogManager.getLogger(ExcelReader.class.getName());
+
     private ExcelReader(){};
 
     // метод для чтения студентов
@@ -24,6 +28,7 @@ public class ExcelReader {
                 .getResourceAsStream("/universityInfo.xlsx");
 
         if (inputStream == null) {
+            logger.error("Файл universityInfo.xlsx не найден в resources");
             throw new IOException("Файл universityInfo.xlsx не найден в resources");
         }
 
@@ -42,9 +47,10 @@ public class ExcelReader {
 
             students.add(student);
         }
-        
+
         workbook.close();
         inputStream.close();
+        logger.info("Прочитано студентов: {}", students.size());
         return students;
     };
 
@@ -56,6 +62,7 @@ public class ExcelReader {
                 .getResourceAsStream("/universityInfo.xlsx");
 
         if (inputStream == null) {
+            logger.error("Файл universityInfo.xlsx не найден в ресурсах");
             throw new IOException("Файл universityInfo.xlsx не найден в ресурсах");
         }
 
@@ -77,9 +84,10 @@ public class ExcelReader {
 
             universities.add(university);
         }
-        
+
         workbook.close();
         inputStream.close();
+        logger.info("Прочитано университетов: {}", universities.size());
         return universities;
     };
 }
