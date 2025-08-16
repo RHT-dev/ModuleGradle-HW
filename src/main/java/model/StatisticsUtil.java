@@ -2,6 +2,8 @@ package model;
 
 import enumeration.StudyProfile;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -10,10 +12,9 @@ public class StatisticsUtil {
 
     // пункт 7
     public static Collection<Statistics> collectStatistics(Collection<Student> students, Collection<University> universities) {
-
         Map<StudyProfile, List<University>> profileToUniversities = universities.stream()
                 .filter(university -> university.getMainProfile() != null)
-                .collect(Collectors.groupingBy(university -> university.getMainProfile()));
+                .collect(Collectors.groupingBy(University::getMainProfile));
 
         List<Statistics> statisticsList = new ArrayList<>();
 
@@ -27,14 +28,20 @@ public class StatisticsUtil {
                     .filter(s -> universityIds.contains(s.getUniversityId()))
                     .collect(Collectors.toList());
 
-            float avgExamScore = 0;
-            if (!studentsOfProfile.isEmpty()) {
-                avgExamScore = (float) studentsOfProfile.stream().mapToDouble(Student::getAvgExamScore).average().orElse(0);
+            OptionalDouble avgExamScoreOpt = studentsOfProfile.stream()
+                    .mapToDouble(Student::getAvgExamScore)
+                    .average();
+
+            Float avgExamScore = null;
+            if (avgExamScoreOpt.isPresent()) {
+                BigDecimal bd = BigDecimal.valueOf(avgExamScoreOpt.getAsDouble());
+                bd = bd.setScale(2, RoundingMode.HALF_UP); // округление до двух знаков после запятой
+                avgExamScore = bd.floatValue();
             }
 
             Statistics stat = new Statistics(
                     profile.getProfileName(),
-                    avgExamScore,
+                    avgExamScore != null ? avgExamScore : 0f,
                     studentsOfProfile.size(),
                     unis.size(),
                     universityNames
