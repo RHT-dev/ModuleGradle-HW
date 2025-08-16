@@ -1,20 +1,25 @@
 package model;
 
 import enumeration.StudyProfile;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
 import java.util.stream.Collectors;
 
-// пункт 6
 public class StatisticsUtil {
+    private static final Logger logger = LogManager.getLogger(StatisticsUtil.class.getName());
 
-    // пункт 7
     public static Collection<Statistics> collectStatistics(Collection<Student> students, Collection<University> universities) {
+        logger.info("Начало сбора статистики по профилям обучения.");
         Map<StudyProfile, List<University>> profileToUniversities = universities.stream()
                 .filter(university -> university.getMainProfile() != null)
                 .collect(Collectors.groupingBy(University::getMainProfile));
+
+        if (profileToUniversities.isEmpty()) {
+            logger.warn("В коллекции университетов нет ни одного профиля обучения.");
+        }
 
         List<Statistics> statisticsList = new ArrayList<>();
 
@@ -48,6 +53,7 @@ public class StatisticsUtil {
             );
             statisticsList.add(stat);
         }
+        logger.info("Сбор статистики завершён. Количество профилей: {}", statisticsList.size());
         return statisticsList;
     }
 }
