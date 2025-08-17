@@ -1,0 +1,133 @@
+{
+  "studentsInfo": [
+    {
+      "studentName": "Иванов И. А.",
+      "universityId": "0002-high",
+      "avgScore": 4.0,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Козлов М. В.",
+      "universityId": "0002-high",
+      "avgScore": 4.6,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Фёдоров А. И.",
+      "universityId": "0002-high",
+      "avgScore": 4.2,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Игнатьев М. М.",
+      "universityId": "0003-high",
+      "avgScore": 4.3,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Соколов В. В.",
+      "universityId": "0004-high",
+      "avgScore": 4.8,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Сидоров Е. Г.",
+      "universityId": "0004-high",
+      "avgScore": 3.9,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Витальев В. А.",
+      "universityId": "0001-high",
+      "avgScore": 4.0,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Петров П. А.",
+      "universityId": "0001-high",
+      "avgScore": 5.0,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Алексеев С. В.",
+      "universityId": "0001-high",
+      "avgScore": 5.0,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Иванов А. Г.",
+      "universityId": "0001-high",
+      "avgScore": 4.8,
+      "currentCourseNumber": 0
+    },
+    {
+      "studentName": "Васильев В. П.",
+      "universityId": "0001-high",
+      "avgScore": 4.7,
+      "currentCourseNumber": 0
+    }
+  ],
+  "universitiesInfo": [
+    {
+      "universityId": "0001-high",
+      "universityName": "Московский Выдуманный Университет",
+      "universityProfile": "PSYCHOLOGY",
+      "yearOfFoundation": 0
+    },
+    {
+      "universityId": "0002-high",
+      "universityName": "Московский Придуманный Институт",
+      "universityProfile": "PSYCHOLOGY",
+      "yearOfFoundation": 0
+    },
+    {
+      "universityId": "0003-high",
+      "universityName": "Московский Государственный Медицинский Университет",
+      "universityProfile": "MEDICINE",
+      "yearOfFoundation": 0
+    },
+    {
+      "universityId": "0004-high",
+      "universityName": "Тамбовский Университет Медицины",
+      "universityProfile": "MEDICINE",
+      "yearOfFoundation": 0
+    },
+    {
+      "universityId": "0005-high",
+      "universityName": "Самарский Медицинский Институт",
+      "universityProfile": "MEDICINE",
+      "yearOfFoundation": 0
+    },
+    {
+      "universityId": "0006-high",
+      "universityName": "Воронежский Литературно-Переводческий Университет",
+      "universityProfile": "ENGINEERING",
+      "yearOfFoundation": 0
+    },
+    {
+      "universityId": "0007-high",
+      "universityName": "Казанский Университет Вычислений",
+      "universityProfile": "MATH",
+      "yearOfFoundation": 0
+    }
+  ],
+  "statisticalInfo": [
+    {
+      "universityProfile": "MATH",
+      "avgScore": 0.0
+    },
+    {
+      "universityProfile": "MEDICINE",
+      "avgScore": 4.33
+    },
+    {
+      "universityProfile": "PSYCHOLOGY",
+      "avgScore": 4.54
+    },
+    {
+      "universityProfile": "ENGINEERING",
+      "avgScore": 0.0
+    }
+  ],
+  "processedAt": "1755420869948"
+}
