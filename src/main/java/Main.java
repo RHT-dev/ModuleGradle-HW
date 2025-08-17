@@ -19,6 +19,7 @@ public class Main {
             root.setProcessedAt(String.valueOf(System.currentTimeMillis()));
 
             XmlWriter.writeToXml(root);
+            io.JsonWriter.writeToJson(root);
         } catch (Exception e) {
             e.printStackTrace();
         }
