@@ -1,62 +1,32 @@
 package model;
 
-import java.util.List;
+import javax.xml.bind.annotation.*;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Statistics {
-    private String studyProfile;
-    private float avgExamScore;
-    private int studentCountInProfile;
-    private int universityCountInProfile;
-    private List<String> universityNames;
+    @XmlElement(name = "universityProfile")
+    private String universityProfile;
 
-    public Statistics() {
+    @XmlElement(name = "avgScore")
+    private double avgScore;
+
+    public Statistics() {}
+
+    public Statistics(String universityProfile, double avgScore) {
+        this.universityProfile = universityProfile;
+        this.avgScore = avgScore;
     }
 
-    public Statistics(String studyProfile, float avgExamScore, int studentCount, int universityCountInProfile, List<String> universityNames) {
-        this.studyProfile = studyProfile;
-        this.avgExamScore = avgExamScore;
-        this.studentCountInProfile = studentCount;
-        this.universityCountInProfile = universityCountInProfile;
-        this.universityNames = universityNames;
+    public String getUniversityProfile() {
+        return universityProfile;
     }
-
-    public String getStudyProfile() {
-        return studyProfile;
+    public void setUniversityProfile(String universityProfile) {
+        this.universityProfile = universityProfile;
     }
-
-    public void setStudyProfile(String studyProfile) {
-        this.studyProfile = studyProfile;
+    public double getAvgScore() {
+        return avgScore;
     }
-
-    public float getAvgExamScore() {
-        return avgExamScore;
-    }
-
-    public void setAvgExamScore(float avgExamScore) {
-        this.avgExamScore = avgExamScore;
-    }
-
-    public int getStudentCountInProfile() {
-        return studentCountInProfile;
-    }
-
-    public void setStudentCountInProfile(int studentCountInProfile) {
-        this.studentCountInProfile = studentCountInProfile;
-    }
-
-    public int getUniversityCountInProfile() {
-        return universityCountInProfile;
-    }
-
-    public void setUniversityCountInProfile(int universityCountInProfile) {
-        this.universityCountInProfile = universityCountInProfile;
-    }
-
-    public List<String> getUniversityNames() {
-        return universityNames;
-    }
-
-    public void setUniversityNames(List<String> universityNames) {
-        this.universityNames = universityNames;
+    public void setAvgScore(double avgScore) {
+        this.avgScore = avgScore;
     }
 }

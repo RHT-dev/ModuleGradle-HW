@@ -1,53 +1,57 @@
 package model;
 
-import com.google.gson.annotations.SerializedName;
+import javax.xml.bind.annotation.*;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Student {
+    @XmlElement(name = "studentName")
+    private String studentName;
 
-    @SerializedName("student_full_name")
-    private String fullName;
-
-    @SerializedName("university_code")
+    @XmlElement(name = "universityId")
     private String universityId;
 
-    @SerializedName("current_course_number")
+    @XmlElement(name = "avgScore")
+    private double avgScore;
+
+
+
+    // по какой-то причине не используется в XML-структуре задания 29.5,
+    // но при удалении этого поля нарушается работа соответствующего компаратора.
+    // поэтому, принято решение оставить поле, но не "транслировать" его в XML структуру
     private int currentCourseNumber;
 
-    @SerializedName("average_exam_score")
-    private float avgExamScore;
 
-    public Student() {
-        this.fullName = "";
-        this.universityId = "";
-        this.currentCourseNumber = 0;
-        this.avgExamScore = 0;
-    }
 
-    public Student(String fullName, String universityId,
-                   int currentCourseNumber, float avgExamScore) {
+    public Student() {}
 
+    public Student(String studentName, String universityId, double avgScore) {
+        this.studentName = studentName;
         this.universityId = universityId;
-        this.fullName = fullName;
-        this.currentCourseNumber = currentCourseNumber;
-        this.avgExamScore = avgExamScore;
+        this.avgScore = avgScore;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public Student setFullName(String fullName) {
-        this.fullName = fullName;
-        return this;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public String getUniversityId() {
         return universityId;
     }
 
-    public Student setUniversityId(String universityId) {
+    public void setUniversityId(String universityId) {
         this.universityId = universityId;
-        return this;
+    }
+
+    public double getAvgScore() {
+        return avgScore;
+    }
+
+    public void setAvgScore(double avgScore) {
+        this.avgScore = avgScore;
     }
 
     public int getCurrentCourseNumber() {
@@ -59,19 +63,4 @@ public class Student {
         return this;
     }
 
-    public float getAvgExamScore() {
-        return avgExamScore;
-    }
-
-    public Student setAvgExamScore(float avgExamScore) {
-        this.avgExamScore = avgExamScore;
-        return this;
-    }
-
-    @Override
-    public String toString() {
-        return "Full Name: " + fullName + "\nUniversity ID: " + universityId
-                + "\nCurrentCourseNumber: " + currentCourseNumber
-                + "\nAverage Exam Score: " + avgExamScore + "\n";
-    }
 }

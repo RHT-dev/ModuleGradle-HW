@@ -1,4 +1,4 @@
-package model;
+package util;
 
 import enumeration.StudentComparatorType;
 import enumeration.UniversityComparatorType;

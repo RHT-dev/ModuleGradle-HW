@@ -50,3 +50,55 @@
   <message>Файл statistics.xlsx успешно создан.</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2025-08-17T08:18:19.400539400Z</date>
+  <millis>1755418699400</millis>
+  <nanos>539400</nanos>
+  <sequence>0</sequence>
+  <logger>Main</logger>
+  <level>INFO</level>
+  <class>Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Данные о студентах успешно считаны. Количество: 11</message>
+</record>
+<record>
+  <date>2025-08-17T08:18:19.437795700Z</date>
+  <millis>1755418699437</millis>
+  <nanos>795700</nanos>
+  <sequence>1</sequence>
+  <logger>Main</logger>
+  <level>INFO</level>
+  <class>Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Данные об университетах успешно считаны. Количество: 7</message>
+</record>
+<record>
+  <date>2025-08-17T08:18:19.443794100Z</date>
+  <millis>1755418699443</millis>
+  <nanos>794100</nanos>
+  <sequence>2</sequence>
+  <logger>Main</logger>
+  <level>INFO</level>
+  <class>Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Статистика собрана. Профилей: 4</message>
+</record>
+<record>
+  <date>2025-08-17T08:18:19.937411300Z</date>
+  <millis>1755418699937</millis>
+  <nanos>411300</nanos>
+  <sequence>3</sequence>
+  <logger>Main</logger>
+  <level>INFO</level>
+  <class>Main</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>Файл statistics.xlsx успешно создан.</message>
+</record>
+</log>

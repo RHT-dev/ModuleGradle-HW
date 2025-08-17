@@ -1,6 +1,7 @@
-package model;
+package io;
 
-import enumeration.StudyProfile;
+import model.Student;
+import model.University;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.poi.ss.usermodel.Row;
@@ -39,12 +40,11 @@ public class ExcelReader {
 
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
-            Student student = new Student()
-                    .setUniversityId(row.getCell(0).getStringCellValue())
-                    .setFullName(row.getCell(1).getStringCellValue())
-                    .setCurrentCourseNumber((int) row.getCell(2).getNumericCellValue())
-                    .setAvgExamScore((float) row.getCell(3).getNumericCellValue());
-
+            Student student = new Student(
+                    row.getCell(1).getStringCellValue(), // studentName
+                    row.getCell(0).getStringCellValue(), // universityId
+                    row.getCell(3).getNumericCellValue() // avgScore
+            );
             students.add(student);
         }
 
@@ -73,15 +73,11 @@ public class ExcelReader {
 
         while (rowIterator.hasNext()) {
             Row row = rowIterator.next();
-            University university = new University()
-                    .setId(row.getCell(0).getStringCellValue())
-                    .setFullName(row.getCell(1).getStringCellValue())
-                    .setShortName(row.getCell(2).getStringCellValue())
-                    .setYearOfFoundation((int) row.getCell(3).getNumericCellValue());
-
-            String profileStr = row.getCell(4).getStringCellValue();
-            university.setMainProfile(StudyProfile.valueOf(profileStr));
-
+            University university = new University(
+                    row.getCell(0).getStringCellValue(), // universityId
+                    row.getCell(1).getStringCellValue(), // universityName
+                    row.getCell(4).getStringCellValue()  // universityProfile
+            );
             universities.add(university);
         }
 

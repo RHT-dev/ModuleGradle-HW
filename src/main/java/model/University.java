@@ -1,57 +1,69 @@
 package model;
 
-import com.google.gson.annotations.SerializedName;
-import enumeration.StudyProfile;
+import javax.xml.bind.annotation.*;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class University {
+    @XmlElement(name = "universityId")
+    private String universityId;
 
-    @SerializedName("university_id")
-    private String id;
+    @XmlElement(name = "universityName")
+    private String universityName;
 
-    @SerializedName("university_full_name")
-    private String fullName;
+    @XmlElement(name = "universityProfile")
+    private String universityProfile;
 
-    @SerializedName("university_title")
-    private String shortName;
 
-    @SerializedName("foundation_year")
+
+    // по какой-то причине не используется в XML-структуре задания 29.5,
+    // но при удалении этого поля нарушается работа соответствующего компаратора.
+    // поэтому, принято решение оставить поле, но не "транслировать" его в XML структуру
     private int yearOfFoundation;
 
-    @SerializedName("main_profile")
-    private StudyProfile mainProfile;
+    // по какой-то причине не используется в XML-структуре задания 29.5,
+    // но при удалении этого поля нарушается работа соответствующего компаратора.
+    // поэтому, принято решение оставить поле, но не "транслировать" его в XML структуру
+    private String shortName;
 
-    public University() {
-        this.id = "";
-        this.fullName = "";
-        this.shortName = "";
-        this.yearOfFoundation = 0;
-        this.mainProfile = null;
+
+    public University() {}
+
+    public University(String universityId, String universityName, String universityProfile) {
+        this.universityId = universityId;
+        this.universityName = universityName;
+        this.universityProfile = universityProfile;
     }
 
-    public University(String id, String fullName, String shortName,
-                      int yearOfFoundation, StudyProfile mainProfile) {
-        this.id = id;
-        this.fullName = fullName;
-        this.shortName = shortName;
+    public String getUniversityId() {
+        return universityId;
+    }
+
+    public void setUniversityId(String universityId) {
+        this.universityId = universityId;
+    }
+
+    public String getUniversityName() {
+        return universityName;
+    }
+
+    public void setUniversityName(String universityName) {
+        this.universityName = universityName;
+    }
+
+    public String getUniversityProfile() {
+        return universityProfile;
+    }
+
+    public void setUniversityProfile(String universityProfile) {
+        this.universityProfile = universityProfile;
+    }
+
+    public int getYearOfFoundation() {
+        return yearOfFoundation;
+    }
+
+    public University setYearOfFoundation(int yearOfFoundation) {
         this.yearOfFoundation = yearOfFoundation;
-        this.mainProfile = mainProfile;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public University setId(String id) {
-        this.id = id;
-        return this;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public University setFullName(String fullName) {
-        this.fullName = fullName;
         return this;
     }
 
@@ -64,29 +76,4 @@ public class University {
         return this;
     }
 
-    public int getYearOfFoundation() {
-        return yearOfFoundation;
-    }
-
-    public University setYearOfFoundation(int yearOfFoundation) {
-        this.yearOfFoundation = yearOfFoundation;
-        return this;
-    }
-
-    public StudyProfile getMainProfile() {
-        return mainProfile;
-    }
-
-    public University setMainProfile(StudyProfile mainProfile) {
-        this.mainProfile = mainProfile;
-        return this;
-    }
-
-    @Override
-    public String toString() {
-        return "ID: " + id + "\nFull Name: " + fullName
-                + "\nShort Name: " + shortName
-                + "\nYear of Foundation: " + yearOfFoundation
-                + "\nStudy Profile: " + (mainProfile != null ? mainProfile.getProfileName() : "null") + "\n";
-    }
 }
